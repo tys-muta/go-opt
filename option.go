@@ -1,13 +1,13 @@
-package option
+package opt
 
 import "fmt"
 
 type Option interface {
 	Validate() error
-	Apply(interface{})
+	Apply(any)
 }
 
-func Reflect(dst interface{}, src ...Option) error {
+func Reflect(dst any, src ...Option) error {
 	for _, option := range src {
 		if option == nil {
 			continue
