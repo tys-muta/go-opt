@@ -1,4 +1,4 @@
-package option
+package opt
 
 import (
 	"fmt"
@@ -6,9 +6,7 @@ import (
 )
 
 func TestReflectInt64(t *testing.T) {
-	var options *TestOptions
-
-	options = &TestOptions{}
+	options := &TestOptions{}
 
 	var want int64 = 1
 	if err := Reflect(options, WithTestOptionInt64(0)); err == nil {
@@ -26,9 +24,7 @@ func TestReflectInt64(t *testing.T) {
 }
 
 func TestReflectString(t *testing.T) {
-	var options *TestOptions
-
-	options = &TestOptions{}
+	options := &TestOptions{}
 
 	var want string = "foo"
 	if err := Reflect(options, WithTestOptionString("")); err == nil {
