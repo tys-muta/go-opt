@@ -19,3 +19,16 @@ func Reflect(dst any, src ...Option) error {
 	}
 	return nil
 }
+
+func Options(src ...any) []Option {
+	options := []Option{}
+	for _, option := range src {
+		if option == nil {
+			continue
+		}
+		if v, ok := option.(Option); ok {
+			options = append(options, v)
+		}
+	}
+	return options
+}
